@@ -17,6 +17,13 @@ class Repository {
     public async findOne(id: string) {
       return this.schema.findById(id);
     }
+    public async update(id: string, payload: Object){
+        return this.schema.findByIdAndUpdate(id, payload);
+    }
+
+    public async remove(id: string){
+        return this.schema.findByIdAndDelete(id)
+    }
   }
   
   export default Repository

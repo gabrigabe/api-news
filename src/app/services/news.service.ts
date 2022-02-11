@@ -6,7 +6,7 @@ class NewsService{
         this.repository = new NewsRepository()
     }
 
-    async create(payload: Object){
+    public async create(payload: Object){
         return this.repository.create(payload)
         
     }
