@@ -1,18 +1,22 @@
 import express from 'express';
 import './infra/db/Db';
+import router from './routes';
 
 class App {
   public app : express.Application;
 
   constructor() {
     this.app = express();
+    this.middlewares();
     this.routes();
   }
 
+  middlewares() {
+    this.app.use(express.json());
+  }
+
   routes() {
-    this.app.route('/').get((req, res) => {
-      res.send({ versao: '0.0.1' });
-    });
+    router(this.app);
   }
 }
 
