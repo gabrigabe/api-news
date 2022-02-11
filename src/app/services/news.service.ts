@@ -1,19 +1,22 @@
 import NewsRepository from '../repositories/News.repository';
 
 class NewsService {
-  private readonly repository: NewsRepository;
-
-  constructor() {
-    this.repository = new NewsRepository();
-  }
-
   public async createNew(payload: Object) {
-    return this.repository.create(payload);
+    return NewsRepository.create(payload);
   }
 
   public async findAllNews() {
-    return this.repository.findAll();
+    const allnews = await NewsRepository.findAll();
+    return allnews;
+  }
+
+  public async updateOneNew(id: string, payload: Object): Promise<void> {
+    await NewsRepository.update(id, payload);
+  }
+
+  public async removeOneNew(id: string): Promise<void> {
+    await NewsRepository.remove(id);
   }
 }
 
-export default NewsService;
+export default new NewsService();

@@ -2,16 +2,19 @@ import { Request, Response } from 'express';
 import NewsService from '../services/News.service';
 
 class NewsController {
-  private readonly service: NewsService;
-
-  constructor() {
-    this.service = new NewsService();
+  public async addOneNew(req: Request, res: Response) {
+    try {
+      const payload = req.body;
+      const addNew = await NewsService.createNew(payload);
+      return res.status(201).json(addNew);
+    } catch (error) {
+      return res.status(500).json();
+    }
   }
 
-  public async addOneNew(req: Request, res: Response) {
-    const payload = req.body;
-    const addNew = await this.service.createNew(payload);
-    return res.status(201).json(addNew);
+  public async getAllNews(req: Request, res: Response) {
+    const news = await NewsService.findAllNews();
+    return res.status(200).json(news);
   }
 }
 

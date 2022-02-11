@@ -18,7 +18,6 @@ const newsSchema = new mongoose.Schema({
   },
   publishDate: {
     type: Date,
-    default: Date.now(),
   },
   link: {
     type: String,

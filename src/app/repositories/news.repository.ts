@@ -7,4 +7,4 @@ class NewsRepository extends Repository {
   }
 }
 
-export default NewsRepository;
+export default new NewsRepository();

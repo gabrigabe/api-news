@@ -2,10 +2,8 @@ import mongoose from 'mongoose';
 import 'dotenv/config';
 
 class Db {
-  private readonly url: string | unknown = process.env.MONGODBCONNECTION;
-
-  public createConnection() {
-    mongoose.connect(`${this.url}}`, () => console.log('Db Connected'));
+  public async createConnection() {
+    await mongoose.connect(`${process.env.MONGODBCONNECTION}`);
   }
 }
 
