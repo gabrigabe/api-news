@@ -1,4 +1,5 @@
 import express from 'express';
+import './infra/db/Db';
 
 class App {
   public app : express.Application;
