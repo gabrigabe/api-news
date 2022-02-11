@@ -1,4 +1,4 @@
-import NewsRepository from '../repositories/news.repository';
+import NewsRepository from '../repositories/News.repository';
 
 class NewsService {
   private readonly repository: NewsRepository;

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import NewsService from '../services/news.service';
+import NewsService from '../services/News.service';
 
 class NewsController {
   private readonly service: NewsService;

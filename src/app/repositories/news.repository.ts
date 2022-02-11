@@ -1,5 +1,5 @@
 import NewsSchema from '../schemas/news.schema';
-import Repository from './repository';
+import Repository from './Repository';
 
 class NewsRepository extends Repository {
   constructor() {
