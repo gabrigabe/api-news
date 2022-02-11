@@ -1,15 +1,19 @@
-import NewsRepository from '../repositories/news.repository'
+import NewsRepository from '../repositories/news.repository';
 
-class NewsService{
-    private readonly repository: NewsRepository
-    constructor(){
-        this.repository = new NewsRepository()
-    }
+class NewsService {
+  private readonly repository: NewsRepository;
 
-    public async create(payload: Object){
-        return this.repository.create(payload)
-        
-    }
+  constructor() {
+    this.repository = new NewsRepository();
+  }
+
+  public async createNew(payload: Object) {
+    return this.repository.create(payload);
+  }
+
+  public async findAllNews() {
+    return this.repository.findAll();
+  }
 }
 
-export default NewsService
+export default NewsService;
