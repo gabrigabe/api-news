@@ -10,12 +10,20 @@ class NewsService {
     return allnews;
   }
 
+  public async findOneNew(id: string) {
+    const oneNew = await NewsRepository.findOne(id);
+    if (!oneNew) throw new Error('NotFound');
+    return oneNew;
+  }
+
   public async updateOneNew(id: string, payload: Object): Promise<void> {
-    await NewsRepository.update(id, payload);
+    const updatedNew = NewsRepository.update(id, payload);
+    if (!updatedNew) throw new Error('NotFound');
   }
 
   public async removeOneNew(id: string): Promise<void> {
-    await NewsRepository.remove(id);
+    const removeNew = await NewsRepository.remove(id);
+    if (!removeNew) throw new Error('NotFound');
   }
 }
 
